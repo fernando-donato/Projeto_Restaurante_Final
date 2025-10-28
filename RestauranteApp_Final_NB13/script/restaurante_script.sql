@@ -1,0 +1,1 @@
+-- Importe o dump SQL completo que você forneceu anteriormente para criar o banco restaurante_db e popular as tabelas.
