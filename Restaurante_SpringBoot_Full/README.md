@@ -1,0 +1,1 @@
+Projeto Spring Boot Restaurante - pronto para abrir no NetBeans. Veja application.properties para configurar o DB.
