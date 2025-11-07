@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Restaurante</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div id="login-screen" class="screen active">
+      <h1>Login do Restaurante</h1>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="username">Login:</label>
+          <input type="text" id="username" value="admin" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Senha:</label>
+          <input type="password" id="password" value="1234" required>
+        </div>
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+
+    <div id="menu-screen" class="screen">
+      <h1>Menu Principal</h1>
+      <button class="menu-btn" data-target="employee-screen"> Cadastro de Funcionários</button>
+      <button class="menu-btn" data-target="customer-screen"> Cadastro de Clientes</button>
+      <button class="menu-btn" data-target="order-screen"> - Registro de Pedidos</button>
+      <button id="logout-btn" class="danger-btn">Sair</button>
+    </div>
+
+    <div id="employee-screen" class="screen">
+      <h1>Cadastro de Funcionários</h1>
+      <form id="employee-form">
+        <div class="form-group">
+          <label for="emp-name">Nome do Funcionário:</label>
+          <input type="text" id="emp-name" required>
+        </div>
+        <div class="form-group">
+          <label for="emp-role">Cargo:</label>
+          <select id="emp-role" required>
+            <option value="">Selecione o cargo</option>
+            <option value="Gerente">Gerente</option>
+            <option value="Garçom">Garçom</option>
+            <option value="Cozinheiro">Cozinheiro</option>
+            <option value="Atendente">Atendente</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="emp-shift">Horário de Trabalho:</label>
+          <select id="emp-shift" required>
+            <option value="">Selecione o horário</option>
+            <option value="Manhã (08:00-12:00)">Manhã (08:00-12:00)</option>
+            <option value="Tarde (13:00-17:00)">Tarde (13:00-17:00)</option>
+            <option value="Noite (18:00-22:00)">Noite (18:00-22:00)</option>
+            <option value="Integral (08:00-17:00)">Integral (08:00-17:00)</option>
+          </select>
+        </div>
+         <div class="form-group">
+          <label for="emp-cpf">CPF:</label>
+          <input type="text" id="emp-cpf">
+        </div>
+         <div class="form-group">
+          <label for="emp-salario">Salário (ex: 1500.00):</label>
+          <input type="number" id="emp-salario" step="0.01">
+        </div>
+        <div class="form-group">
+          <label for="emp-admission-date">Data de Admissão:</label>
+          <input type="date" id="emp-admission-date" required>
+        </div>
+        <button type="submit">Salvar</button>
+        <button type="button" class="back-btn" data-target="menu-screen">Voltar</button>
+      </form>
+    </div>
+
+    <div id="customer-screen" class="screen">
+      <h1>Cadastro de Clientes</h1>
+      <form id="customer-form">
+        <div class="form-group">
+          <label for="cust-name">Nome:</label>
+          <input type="text" id="cust-name" required>
+        </div>
+        <div class="form-group">
+          <label for="cust-phone">Telefone:</label>
+          <input type="tel" id="cust-phone">
+        </div>
+        <div class="form-group">
+          <label for="cust-email">E-mail:</label>
+          <input type="email" id="cust-email">
+        </div>
+        <button type="submit">Salvar</button>
+        <button type="button" class="back-btn" data-target="menu-screen">Voltar</button>
+      </form>
+    </div>
+
+    <div id="order-screen" class="screen">
+      <h1>Registro de Pedidos</h1>
+      <form id="order-form">
+        <div class="form-group">
+          <label for="order-waiter">Garçom:</label>
+          <select id="order-waiter" required>
+            <option value="">Carregando garçons...</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <p><strong>Data/Hora do Pedido:</strong> <span id="order-datetime"></span></p>
+        </div>
+
+        <h3>Cardápio</h3>
+        <div id="menu-items" class="menu-grid">
+          <p>Carregando cardápio...</p>
+        </div>
+
+        <h3>Carrinho</h3>
+        <table id="cart-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Qtd.</th>
+              <th>Preço</th>
+            </tr>
+          </thead>
+          <tbody id="cart-body">
+          </tbody>
+        </table>
+        <div class="form-group total-group">
+          <label for="cart-total">Total:</label>
+          <input type="text" id="cart-total" value="R$ 0.00" readonly>
+        </div>
+
+        <button type="submit">Registrar Pedido</button>
+        <button type="button" class="back-btn" data-target="menu-screen">Retornar ao Menu Principal</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Popup (Modal) -->
+  <div id="popup-overlay" class="popup-overlay">
+    <div class="popup-content">
+      <span id="popup-close" class="popup-close">&times;</span>
+      <p id="popup-message"></p>
+      <button id="popup-ok-btn" class="popup-ok-btn">OK</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
